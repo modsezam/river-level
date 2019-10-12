@@ -11,17 +11,18 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "id_stacji",
-    "stacja",
-    "rzeka",
-    "stan_wody",
-    "stan_wody_data_pomiaru",
-    "temperatura_wody",
-    "temperatura_wody_data_pomiaru",
-    "zjawisko_lodowe",
-    "zjawisko_lodowe_data_pomiaru",
-    "zjawisko_zarastania",
-    "zjawisko_zarastania_data_pomiaru"
+        "id_stacji",
+        "stacja",
+        "rzeka",
+        "wojew\u00f3dztwo",
+        "stan_wody",
+        "stan_wody_data_pomiaru",
+        "temperatura_wody",
+        "temperatura_wody_data_pomiaru",
+        "zjawisko_lodowe",
+        "zjawisko_lodowe_data_pomiaru",
+        "zjawisko_zarastania",
+        "zjawisko_zarastania_data_pomiaru"
 })
 public class RiverLevel {
 
@@ -31,22 +32,24 @@ public class RiverLevel {
     private String stacja;
     @JsonProperty("rzeka")
     private String rzeka;
+    @JsonProperty("wojew\u00f3dztwo")
+    private String wojewodztwo;
     @JsonProperty("stan_wody")
     private String stanWody;
     @JsonProperty("stan_wody_data_pomiaru")
     private String stanWodyDataPomiaru;
     @JsonProperty("temperatura_wody")
-    private String temperaturaWody;
+    private Object temperaturaWody;
     @JsonProperty("temperatura_wody_data_pomiaru")
-    private String temperaturaWodyDataPomiaru;
+    private Object temperaturaWodyDataPomiaru;
     @JsonProperty("zjawisko_lodowe")
     private String zjawiskoLodowe;
     @JsonProperty("zjawisko_lodowe_data_pomiaru")
     private String zjawiskoLodoweDataPomiaru;
     @JsonProperty("zjawisko_zarastania")
-    private Object zjawiskoZarastania;
+    private String zjawiskoZarastania;
     @JsonProperty("zjawisko_zarastania_data_pomiaru")
-    private Object zjawiskoZarastaniaDataPomiaru;
+    private String zjawiskoZarastaniaDataPomiaru;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -80,6 +83,16 @@ public class RiverLevel {
         this.rzeka = rzeka;
     }
 
+    @JsonProperty("wojew\u00f3dztwo")
+    public String getWojewDztwo() {
+        return wojewodztwo;
+    }
+
+    @JsonProperty("wojew\u00f3dztwo")
+    public void setWojewDztwo(String wojewDztwo) {
+        this.wojewodztwo = wojewDztwo;
+    }
+
     @JsonProperty("stan_wody")
     public String getStanWody() {
         return stanWody;
@@ -101,22 +114,22 @@ public class RiverLevel {
     }
 
     @JsonProperty("temperatura_wody")
-    public String getTemperaturaWody() {
+    public Object getTemperaturaWody() {
         return temperaturaWody;
     }
 
     @JsonProperty("temperatura_wody")
-    public void setTemperaturaWody(String temperaturaWody) {
+    public void setTemperaturaWody(Object temperaturaWody) {
         this.temperaturaWody = temperaturaWody;
     }
 
     @JsonProperty("temperatura_wody_data_pomiaru")
-    public String getTemperaturaWodyDataPomiaru() {
+    public Object getTemperaturaWodyDataPomiaru() {
         return temperaturaWodyDataPomiaru;
     }
 
     @JsonProperty("temperatura_wody_data_pomiaru")
-    public void setTemperaturaWodyDataPomiaru(String temperaturaWodyDataPomiaru) {
+    public void setTemperaturaWodyDataPomiaru(Object temperaturaWodyDataPomiaru) {
         this.temperaturaWodyDataPomiaru = temperaturaWodyDataPomiaru;
     }
 
@@ -141,22 +154,22 @@ public class RiverLevel {
     }
 
     @JsonProperty("zjawisko_zarastania")
-    public Object getZjawiskoZarastania() {
+    public String getZjawiskoZarastania() {
         return zjawiskoZarastania;
     }
 
     @JsonProperty("zjawisko_zarastania")
-    public void setZjawiskoZarastania(Object zjawiskoZarastania) {
+    public void setZjawiskoZarastania(String zjawiskoZarastania) {
         this.zjawiskoZarastania = zjawiskoZarastania;
     }
 
     @JsonProperty("zjawisko_zarastania_data_pomiaru")
-    public Object getZjawiskoZarastaniaDataPomiaru() {
+    public String getZjawiskoZarastaniaDataPomiaru() {
         return zjawiskoZarastaniaDataPomiaru;
     }
 
     @JsonProperty("zjawisko_zarastania_data_pomiaru")
-    public void setZjawiskoZarastaniaDataPomiaru(Object zjawiskoZarastaniaDataPomiaru) {
+    public void setZjawiskoZarastaniaDataPomiaru(String zjawiskoZarastaniaDataPomiaru) {
         this.zjawiskoZarastaniaDataPomiaru = zjawiskoZarastaniaDataPomiaru;
     }
 
@@ -170,4 +183,23 @@ public class RiverLevel {
         this.additionalProperties.put(name, value);
     }
 
+
+    @Override
+    public String toString() {
+        return "RiverLevel{" +
+                "idStacji='" + idStacji + '\'' +
+                ", stacja='" + stacja + '\'' +
+                ", rzeka='" + rzeka + '\'' +
+                ", wojewodztwo='" + wojewodztwo + '\'' +
+                ", stanWody='" + stanWody + '\'' +
+                ", stanWodyDataPomiaru='" + stanWodyDataPomiaru + '\'' +
+                ", temperaturaWody=" + temperaturaWody +
+                ", temperaturaWodyDataPomiaru=" + temperaturaWodyDataPomiaru +
+                ", zjawiskoLodowe='" + zjawiskoLodowe + '\'' +
+                ", zjawiskoLodoweDataPomiaru='" + zjawiskoLodoweDataPomiaru + '\'' +
+                ", zjawiskoZarastania='" + zjawiskoZarastania + '\'' +
+                ", zjawiskoZarastaniaDataPomiaru='" + zjawiskoZarastaniaDataPomiaru + '\'' +
+                ", additionalProperties=" + additionalProperties +
+                '}';
+    }
 }

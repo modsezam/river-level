@@ -8,10 +8,30 @@
 <body>
 <th:block th:replace="fragments :: navigator" th:remove="tag"></th:block>
 
+<main role="main" class="container">
+    <div class="container">
+        <div class="row">
 
-test site
+            <div class="col-md-4">
+                <div class="row mb-2">
+                    <h2>List of river:</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="list-group" th:each="river, iter: ${listOdRivers}">
+                            <li class="list-group-item"><a th:text="'id ' + ${iter.count} + ' - ' + ${river}"
+                                                           th:href="@{'/rivers/' + ${iter.count}}"></a></li>
+                        </ul>
+                    </div>
+                </div>
 
 
+            </div>
+
+
+        </div>
+    </div>
+</main>
 
 <th:block th:replace="fragments :: jsscripts" th:remove="tag"></th:block>
 </body>
